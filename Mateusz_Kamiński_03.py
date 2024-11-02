@@ -64,11 +64,11 @@ def split_and_do(monthsData, daysData, dayTimesData, tworzenie):
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(description='Program do tworzenia i odczytywania plików csv w folderach.\n Przykład użycia: python3 Mateusz_Kamiński_03.py -t -m styczeń luty -d pn-wt śr-pt -p r w')
     parser.add_argument('-t', '--tworzenie', action='store_true', help='Tworzenie plików zamiast odczytu.')
     parser.add_argument('-m', '--miesiace', nargs='+', choices=monthsTable, required=True, help='Wybierz miesiące.')
-    parser.add_argument('-d', '--dni', nargs='+', choices=daysTable, required=True, help='Wybierz zakres dni tygodnia (np. pn-wt, śr-pt).')
-    parser.add_argument('-p', '--pora', nargs='*', default=['r'], choices=['r', 'w'], help='Wybierz porę dnia (rano (r), wieczór (w)).')
+    parser.add_argument('-d', '--dni', nargs='+', required=True, help='Wybierz zakres dni tygodnia (np. pn-wt, śr-pt).')
+    parser.add_argument('-p', '--pora', nargs='*', default=['r'], choices=['r', 'w'], help='Wybierz porę dnia: rano (r), wieczór (w). Domyslnie rano.')
     args = parser.parse_args()
     
     split_and_do(args.miesiace, args.dni, args.pora, args.tworzenie)
