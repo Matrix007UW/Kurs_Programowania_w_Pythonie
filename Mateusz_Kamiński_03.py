@@ -10,7 +10,6 @@ def create_file(month, day, dayTime):
     os.makedirs(folderPath, exist_ok=True)
 
     filePath = os.path.join(folderPath, 'Dane.csv')
-    print(filePath)
     if os.path.exists(filePath):
         print('Plik już istnieje')
     else:
