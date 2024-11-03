@@ -32,8 +32,12 @@ def readFile(month, day, dayTime):
     if os.path.exists(filePath):
         with open(filePath, 'r') as file:
             readFile = csv.reader(file)
+            print("Miesiąc: " + month + ", Dzień: " + day + ", Pora: " + dayTime)
+            i = 0
             for wiersz in readFile:
-                print(wiersz)
+                if(i == 1):
+                    print(wiersz)
+                i += 1
     else:
         print('Plik nie istnieje')
 
